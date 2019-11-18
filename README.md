@@ -47,6 +47,7 @@ Returns current weather and forecast for location
 ```location```: desired city location with state or country
 
 [![Run in Postman](https://run.pstmn.io/button.svg)]()
+
 [View Example](https://sweater-weather-express-js.herokuapp.com/api/v1/forecast?location=denver,co)
 
 ### Favoriting Locations
