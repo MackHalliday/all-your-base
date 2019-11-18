@@ -1,74 +1,106 @@
-# All your Express base are belong to us
-
-[![Build Status](https://travis-ci.com/turingschool-examples/all-your-base.svg?branch=master)](https://travis-ci.com/turingschool-examples/all-your-base)
-
-## Getting started
-To use this repo, you’ll need to `fork` the repo as your own. Once you have done that, you’ll need to run the following command below to get everything up and running. 
-
-#### Installing necessary dependencies
-The easiest way to get started is to run the following command. This will pull down any necessary dependencies that your app will require. You can think of this command as something incredibly similar to `bundle install` in Rails. 
-
-`npm install`
-
-#### Set up your local database
-You’ll need to figure out a name for your database. We suggest calling it something like `sweater_weather_dev`.  
-
-To get things set up, you’ll need to access your Postgres instance by typing in `psql` into your terminal. Once there, you can create your database by running the comment `CREATE DATABASE PUT_DATABASE_NAME_HERE_dev;`. 
-
-Now you have a database for your new project.
-
-#### Migrations
-Once you have your database setup, you’ll need to run some migrations (if you have any). You can do this by running the following command: 
-
-`knex migrate:latest`
 
 
-Instructions to create database, run migrations, and seed: 
-```
-psql
-CREATE DATABASE DATABASE_NAME_dev;
-\q
+# Sweater Weather
+#### Created by: [Mack Halliday](https://github.com/MackHalliday)
 
-knex migrate:latest
-knex seed:run
-```
+## Contents 
+ *  [Introduction]()
+ *  [Initial Setup]()
+ *  [How to Run Tests]()
+ *  [How to Use]()
+ *  [Schema Design]()
+ *  [Tech Stack List]()
+ *  [Core Contributors]()
 
-#### Set up your test database
-Most of the setup is going to be same as the one you did before. You’ll notice one small difference with setting the environment flag to `test`.  
+## Introduction
 
-```
-psql
-CREATE DATABASE DATABASE_NAME_test;
-\q
+* [Project Requirements](https://backend.turing.io/module4/projects/express_sweater_weather/express_sweater_weather_spec)
 
-knex migrate:latest --env test
-```
+* [GitHub Project Board](https://github.com/MackHalliday/sweater_weather_express/projects/2)
 
-## Running your tests
-Running tests are simple and require you to run the following command below: 
+ SweaterWeatherExpress is an API application with endpoints to return local weather.
+ 
+ ## Intial Setup 
+ 
+ ## How to Run Tests
+ 
+ ## How to Use
+ 
+ ## Schema Design 
+ 
+ ## Tech Stack List
+ 
+ ## Core Contributors
 
-`npm test`
+ ## Endpoints
 
-When the tests have completed, you’ll get a read out of how things panned out. The tests will be a bit more noisy than what you’re used to, so be prepared. 
+### Root 
+Application address
 
-## Setting up your production environment
-This repo comes with a lot of things prepared for you. This includes production ready configuration. To get started, you’ll need to do a few things. 
+``` https://sweater-weather-express-js.herokuapp.com/```
 
-- Start a brand new app on the Heroku dashboard 
-- Add a Postgres instance to your new Heroku app
-- Find the URL of that same Postgres instance and copy it. It should look like a long url. It may look something like like `postgres://sdflkjsdflksdf:9d3367042c8739f3...`.
-- Update your `knexfile.js` file to use your Heroku database instance. You’ll see a key of `connection` with a value of an empty string. This is where you’ll paste your new Postgres instance URL. 
+### Forecast for City
+Returns current weather and forecast for location
 
-Once you’ve set all of that up, you’ll need to `add the remote` to your new app. This should work no differently than how you’ve done it with any Rails project. Adding this remote will allow you to run `git push heroku master`. 
+``` GET /api/v1/forecast?location=denver,co```
 
-Once you’ve done that, you’ll need to `bash` into your Heroku instance and get some things set up. 
+```location```: desired city location with state or country
 
-- Run the following commands to get started:
-```
-heroku run bash
-npm install
-nom install -g knex
-knex migrate:latest
-```
+[View Example](https://sweater-weather-express-js.herokuapp.com/api/v1/forecast?location=denver,co)
 
-This will install any dependencies, install Knex, and migrate any changes that you’ve made to the database. 
+### City Background Image
+
+  Returns large image with orientation as landscape
+
+  ``` GET /api/v1/backgrounds?location=denver,co```
+
+  ```location```: Desired city location with state or country
+
+  [View Example](https://sweater-weather-halliday.herokuapp.com/api/v1/backgrounds?location=denver,co)
+
+### Create User Account
+
+  Creates a user with valid emails and password matching password confirmation
+  
+  If successful, will return user's API key and 201 status
+
+  ```POST /api/v1/users```
+  
+  ``` body 
+    {
+     "email": "whatever@example.com",
+     "password": "password",
+     "password_confirmation": "password"
+     }
+  ```
+  
+  ```email```: Must be valid email not already used by another user
+  
+  ```password```: Desired password
+  
+  ```password_confirmation```: Must match password
+  
+[![Run in Postman](https://run.pstmn.io/button.svg)]()
+
+### Login User
+
+  Logins in user with correct password
+  
+  If successful, will return user's API key and 201 status
+  
+
+  ```POST /api/v1/sessions ```
+  
+  ``` body 
+    {
+     "email": "whatever@example.com",
+     "password": "password",
+     }
+  ```
+  
+  ```email```: Must match email used to create account
+  
+  ```password```: Must match password used to create account
+  
+  [![Run in Postman](https://run.pstmn.io/button.svg)]()
+  
