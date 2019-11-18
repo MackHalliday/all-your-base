@@ -3,7 +3,7 @@
 # Sweater Weather
 #### Created by: [Mack Halliday](https://github.com/MackHalliday)
 
-## Contents 
+## Table of Contents 
  *  [Introduction]()
  *  [Initial Setup]()
  *  [How to Run Tests]()
@@ -46,61 +46,50 @@ Returns current weather and forecast for location
 
 ```location```: desired city location with state or country
 
+[![Run in Postman](https://run.pstmn.io/button.svg)]()
 [View Example](https://sweater-weather-express-js.herokuapp.com/api/v1/forecast?location=denver,co)
 
-### City Background Image
+### Favoriting Locations
 
-  Returns large image with orientation as landscape
+  Adds a user's favorite city
 
-  ``` GET /api/v1/backgrounds?location=denver,co```
+  ``` POST /api/v1/favorites```
+  ``` body:
 
-  ```location```: Desired city location with state or country
-
-  [View Example](https://sweater-weather-halliday.herokuapp.com/api/v1/backgrounds?location=denver,co)
-
-### Create User Account
-
-  Creates a user with valid emails and password matching password confirmation
-  
-  If successful, will return user's API key and 201 status
-
-  ```POST /api/v1/users```
-  
-  ``` body 
-    {
-     "email": "whatever@example.com",
-     "password": "password",
-     "password_confirmation": "password"
-     }
-  ```
-  
-  ```email```: Must be valid email not already used by another user
-  
-  ```password```: Desired password
-  
-  ```password_confirmation```: Must match password
-  
+   {
+     "location": "Denver, CO",
+     "api_key": "YOUR_API_KEY"
+   }
+```
 [![Run in Postman](https://run.pstmn.io/button.svg)]()
 
-### Login User
+### Listing Favorite Locations
 
-  Logins in user with correct password
-  
-  If successful, will return user's API key and 201 status
-  
+Lists all of user's favorited locations
 
-  ```POST /api/v1/sessions ```
+  ```GET /api/v1/favorites```
+  
+  ``` body:
+
+   {
+     "api_key": "YOUR_API_KEY"
+   } 
+   ```
+ 
+[![Run in Postman](https://run.pstmn.io/button.svg)]()
+
+### Removing Favorite Locations
+
+ Removes a user's favorite location
+  
+  ```DELETE /api/v1/favorites```
   
   ``` body 
-    {
-     "email": "whatever@example.com",
-     "password": "password",
+     {
+     "location": "Denver, CO",
+     "api_key": "jgn983hy48thw9begh98h4539h4"
      }
   ```
-  
-  ```email```: Must match email used to create account
-  
-  ```password```: Must match password used to create account
   
   [![Run in Postman](https://run.pstmn.io/button.svg)]()
   
