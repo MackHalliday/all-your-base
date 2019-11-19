@@ -86,7 +86,7 @@ Lists all of user's favorited locations
   ``` body 
      {
      "location": "Denver, CO",
-     "api_key": "jgn983hy48thw9begh98h4539h4"
+     "api_key": "YOUR_API_KEY"
      }
   ```
   
