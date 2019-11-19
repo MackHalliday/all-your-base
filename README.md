@@ -10,6 +10,7 @@
  *  [Initial Setup](https://github.com/MackHalliday/sweater_weather_express#intial-setup)
  *  [How to Run Tests](https://github.com/MackHalliday/sweater_weather_express#how-to-run-tests)
  *  [How to Use](https://github.com/MackHalliday/sweater_weather_express#how-to-use)
+  * [Endpoints](https://github.com/MackHalliday/sweater_weather_express/blob/master/README.md#endpoints)
  *  [Schema Design](https://github.com/MackHalliday/sweater_weather_express#schema-design)
  *  [Tech Stack List](https://github.com/MackHalliday/sweater_weather_express#tech-stack-list)
  *  [Core Contributors](https://github.com/MackHalliday/sweater_weather_express#core-contributors)
