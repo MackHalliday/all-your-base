@@ -29,15 +29,9 @@
  
  ## How to Use
  
- ## Schema Design 
- 
- ## Tech Stack List
- 
- ## Core Contributors
-
  ## Endpoints
-
-### Root 
+ 
+ ### Root 
 Application address
 
 ``` https://sweater-weather-express-js.herokuapp.com/```
@@ -95,3 +89,10 @@ Lists all of user's favorited locations
   
   [![Run in Postman](https://run.pstmn.io/button.svg)]()
   
+ 
+ ## Schema Design 
+ 
+ ## Tech Stack List
+ 
+ ## Core Contributors
+
