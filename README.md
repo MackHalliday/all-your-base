@@ -4,13 +4,13 @@
 #### Created by: [Mack Halliday](https://github.com/MackHalliday)
 
 ## Table of Contents 
- *  [Introduction]()
- *  [Initial Setup]()
- *  [How to Run Tests]()
- *  [How to Use]()
- *  [Schema Design]()
- *  [Tech Stack List]()
- *  [Core Contributors]()
+ *  [Introduction](https://github.com/MackHalliday/sweater_weather_express#introduction)
+ *  [Initial Setup](https://github.com/MackHalliday/sweater_weather_express#intial-setup)
+ *  [How to Run Tests](https://github.com/MackHalliday/sweater_weather_express#how-to-run-tests)
+ *  [How to Use](https://github.com/MackHalliday/sweater_weather_express#how-to-use)
+ *  [Schema Design](https://github.com/MackHalliday/sweater_weather_express#schema-design)
+ *  [Tech Stack List](https://github.com/MackHalliday/sweater_weather_express#tech-stack-list)
+ *  [Core Contributors](https://github.com/MackHalliday/sweater_weather_express#core-contributors)
 
 ## Introduction
 
