@@ -48,8 +48,6 @@ Returns current weather and forecast for location
 
 [![Run in Postman](https://run.pstmn.io/button.svg)]()
 
-[View Example](https://sweater-weather-express-js.herokuapp.com/api/v1/forecast?location=denver,co)
-
 ### Favoriting Locations
 
   Adds a user's favorite city
