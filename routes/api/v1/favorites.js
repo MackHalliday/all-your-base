@@ -7,7 +7,12 @@ const database = require('knex')(configuration);
 
 router.get('/', (request, response) => {
   let apiKey = JSON.stringify(request.body.api_key)
-  let userId = database('users').where({api_key: apiKey})
+  // let userId = database('users').where({api_key: apiKey})
+  // let userId = database('users').select('id').where({api_key: apiKey})
+  let userId = '41'
+
+  console.log(apiKey)
+  console.log(userId)
 
   database('favorites').select('location').where({user_id: userId})
     .then((favorites) => {
