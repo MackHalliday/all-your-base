@@ -12,13 +12,12 @@ let darkSkyService = new DarkSkyService();
 class ForecastPresenter {
   constructor(){ }
 
-  async favoriteLocationsAsync(userId){
-    let favoriteLocations = await database('favorites').where('user_id', userId[0].id).select('location');
+  async favoriteLocationsAsync(favoriteLocations){
 
     let favoriteLocationsFormat = await Promise.all(favoriteLocations.map( async (location) => {
-        let coordinates = await geoCodingService.getCoordinatesAsync(location.location);
-        let forecast = await darkSkyService.getForecast(coordinates);
-        return new ForecastCurrentlyObject(location.location, forecast); 
+      let coordinates = await geoCodingService.getCoordinatesAsync(location.location);
+      let forecast = await darkSkyService.getForecast(coordinates);
+      return new ForecastCurrentlyObject(location.location, forecast);
     }));
     return favoriteLocationsFormat;
   }
