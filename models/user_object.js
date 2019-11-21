@@ -7,6 +7,7 @@ class UserObject {
   }
   async validKey(api_key){
     if (typeof api_key === 'undefined'){ return false }
+
     let user = await database('users').where('api_key', api_key)
 
     if (user.length === 0)
