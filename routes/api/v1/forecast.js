@@ -15,7 +15,7 @@ router.get('/', async function (request, response, next) {
   let location = await request.query.location
   let coordinates = await geoCodingService.getCoordinatesAsync(location);
   let forecast = await darkSkyService.getForecast(coordinates);
-
+  
   response.status(200).json(forecast);
 })
 
