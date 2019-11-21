@@ -1,3 +1,7 @@
+// import setup file (...file)
+// how to import setup
+// see all_your_base_testing
+
 let express = require('express');
 let router = express.Router();
 
@@ -19,16 +23,14 @@ router.get('/', async function (request, response) {
   let api_key = request.body.api_key
   let valid_key = await userObject.validKey(api_key)
 
-  if (valid_key === true ){
-
+  if (valid_key === true){
     let location = await request.query.location
     let coordinates = await geoCodingService.getCoordinatesAsync(location);
     let forecast = await darkSkyService.getForecast(coordinates);
     let forcastFormat = await new ForecastObject(location, forecast);
-
     return response.status(200).json(forcastFormat);
   } else {
-    return response.status(404).send("Unauthorized");
+    return response.status(401).send("Unauthorized");
   };
 })
 
