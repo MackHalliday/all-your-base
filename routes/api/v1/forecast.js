@@ -17,14 +17,15 @@ router.get('/', async function (request, response, next) {
 
   let api_key = request.body.api_key
   let valid_key = await userObject.validKey(api_key)
-  console.log(valid_key)
 
-  let location = await request.query.location
-  let coordinates = await geoCodingService.getCoordinatesAsync(location);
-  let forecast = await darkSkyService.getForecast(coordinates);
-
-  response.status(200).json(forecast);
-
+  if (valid_key === true){
+    let location = await request.query.location
+    let coordinates = await geoCodingService.getCoordinatesAsync(location);
+    let forecast = await darkSkyService.getForecast(coordinates);
+    return response.status(200).json(forecast);
+  } else {
+    return response.status(404).send("error");
+  };
 })
 
 module.exports = router;
