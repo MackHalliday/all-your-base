@@ -12,9 +12,9 @@ let DarkSkyService = require('../../../services/dark_sky_service.js');
 let darkSkyService = new DarkSkyService();
 
 router.get('/', async function (request, response, next) {
-  const location = await request.query.location
-  const coordinates = await geoCodingService.getCoordinatesAsync(location);
-  const forecast = await darkSkyService.getForecast(coordinates);
+  let location = await request.query.location
+  let coordinates = await geoCodingService.getCoordinatesAsync(location);
+  let forecast = await darkSkyService.getForecast(coordinates);
 
   response.status(200).json(forecast);
 })
