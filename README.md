@@ -43,7 +43,7 @@ Returns current weather and forecast for location
 
 ```location```: desired city location with state or country
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/853b5a98c9f7f92aeee4)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/853b5a98c9f7f92aeee4)
 
 ### Favoriting Locations
 
