@@ -15,11 +15,12 @@ router.get('/', async function (request, response) {
   let apiKey = request.body.api_key
   let validKey = await userObject.validKey(apiKey)
 
-  if (validKey === true ){
-    let userId = await database('users').where('api_key', apiKey).select('id');
-    let favoriteLocations = await forecastPresenter.favoriteLocationsAsync(userId);
+  if ( validKey === true ){
+    let userId = await userObject.findUserIdByApiKey(apiKey)
+    let favoriteLocations = await userObject.favoriteLocations(userId)
+    let favoriteLocationsData = await forecastPresenter.favoriteLocationsAsync(favoriteLocations);
 
-    return response.status(200).json(favoriteLocations);
+    return response.status(200).json(favoriteLocationsData);
   } else {
     return response.status(404).send("Unauthorized");
   };
