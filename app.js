@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -8,7 +9,7 @@ const configuration = require('./knexfile')[environment];
 
 var indexRouter = require('./routes/index');
 var papersRouter = require('./routes/api/v1/papers');
-var favoritesRouter = require('./routes/api/v1/favorites');
+var forecastRouter = require('./routes/api/v1/forecast');
 
 var app = express();
 
@@ -20,6 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/v1/papers', papersRouter);
-app.use('/api/v1/favorites', favoritesRouter);
+app.use('/api/v1/forecast', forecastRouter);
 
 module.exports = app;
