@@ -1,10 +1,19 @@
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('../knexfile')[environment];
+const database = require('knex')(configuration);
+
 class UserObject {
   constructor(){
 
   }
   async validKey(api_key){
-    console.log(api_key)
-    if(typeof api_key === 'undefined'){ return false }
+    if (typeof api_key === 'undefined'){ return false }
+
+    database('users').where('api_key', api_key)
+      .then(user => {
+      if (user.length === 0) { return false }
+      else { return true }
+    });
   }
 }
 
