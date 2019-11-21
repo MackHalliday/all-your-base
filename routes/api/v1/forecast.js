@@ -20,7 +20,7 @@ router.get('/', async function (request, response) {
   let valid_key = await userObject.validKey(api_key)
 
   if (valid_key === true ){
-    
+
     let location = await request.query.location
     let coordinates = await geoCodingService.getCoordinatesAsync(location);
     let forecast = await darkSkyService.getForecast(coordinates);
