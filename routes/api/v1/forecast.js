@@ -6,17 +6,30 @@ const configuration = require('../../../knexfile')[environment];
 const database = require('knex')(configuration);
 
 let GeoCodingService = require('../../../services/geo_coding_service.js');
-let geoCodingService = new GeoCodingService();
-
 let DarkSkyService = require('../../../services/dark_sky_service.js');
-let darkSkyService = new DarkSkyService();
+let UserObject = require('../../../models/user_object.js');
+let ForecastObject = require('../../../models/forecast_object.js');
 
-router.get('/', async function (request, response, next) {
-  let location = await request.query.location
-  let coordinates = await geoCodingService.getCoordinatesAsync(location);
-  let forecast = await darkSkyService.getForecast(coordinates);
-  
-  response.status(200).json(forecast);
+let geoCodingService = new GeoCodingService();
+let darkSkyService = new DarkSkyService();
+let userObject = new UserObject();
+
+router.get('/', async function (request, response) {
+
+  let api_key = request.body.api_key
+  let valid_key = await userObject.validKey(api_key)
+
+  if (valid_key === true ){
+    
+    let location = await request.query.location
+    let coordinates = await geoCodingService.getCoordinatesAsync(location);
+    let forecast = await darkSkyService.getForecast(coordinates);
+    let forcastFormat = await new ForecastObject(location, forecast);
+
+    return response.status(200).json(forcastFormat);
+  } else {
+    return response.status(404).send("Unauthorized");
+  };
 })
 
 module.exports = router;
