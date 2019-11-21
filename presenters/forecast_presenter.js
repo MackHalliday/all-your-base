@@ -13,7 +13,6 @@ class ForecastPresenter {
   constructor(){ }
 
   async favoriteLocationsAsync(favoriteLocations){
-
     let favoriteLocationsFormat = await Promise.all(favoriteLocations.map( async (location) => {
       let coordinates = await geoCodingService.getCoordinatesAsync(location.location);
       let forecast = await darkSkyService.getForecast(coordinates);
