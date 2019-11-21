@@ -5,6 +5,7 @@ const database = require('knex')(configuration);
 let GeoCodingService = require('../services/geo_coding_service.js');
 let DarkSkyService = require('../services/dark_sky_service.js');
 let ForecastCurrentlyObject = require('../models/forecast_currently_object.js')
+let ForecastObject = require('../models/forecast_object.js')
 
 let geoCodingService = new GeoCodingService();
 let darkSkyService = new DarkSkyService();
@@ -19,6 +20,12 @@ class ForecastPresenter {
       return new ForecastCurrentlyObject(location.location, forecast);
     }));
     return favoriteLocationsFormat;
+  }
+
+  async locationAsync(location){
+    let coordinates = await geoCodingService.getCoordinatesAsync(location);
+    let forecast = await darkSkyService.getForecast(coordinates);
+    return await new ForecastObject(location, forecast);
   }
 }
 module.exports = ForecastPresenter
