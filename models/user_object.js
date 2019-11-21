@@ -16,6 +16,13 @@ class UserObject {
       { return true
     };
   }
+  async favoriteLocations(userId){
+    return await database('favorites').where('user_id', userId[0].id).select('location')
+  }
+
+  async findUserIdByApiKey(apiKey){
+    return database('users').where('api_key', apiKey).select('id');
+  }
 }
 
 module.exports = UserObject
