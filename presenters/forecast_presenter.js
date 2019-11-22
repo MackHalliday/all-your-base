@@ -2,13 +2,13 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 
-let GeoCodingService = require('../services/geo_coding_service.js');
-let DarkSkyService = require('../services/dark_sky_service.js');
-let ForecastCurrentlyObject = require('../models/forecast_currently_object.js')
-let ForecastObject = require('../models/forecast_object.js')
+const GeoCodingService = require('../services/geo_coding_service.js');
+const DarkSkyService = require('../services/dark_sky_service.js');
+const ForecastCurrentlyObject = require('../models/forecast_currently_object.js')
+const ForecastObject = require('../models/forecast_object.js')
 
-let geoCodingService = new GeoCodingService();
-let darkSkyService = new DarkSkyService();
+const geoCodingService = new GeoCodingService();
+const darkSkyService = new DarkSkyService();
 
 class ForecastPresenter {
   constructor(){ }

@@ -5,11 +5,11 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('../../../knexfile')[environment];
 const database = require('knex')(configuration);
 
-let UserObject = require('../../../models/user_object.js');
-let ForecastPresenter = require('../../../presenters/forecast_presenter.js')
+const UserObject = require('../../../models/user_object.js');
+const ForecastPresenter = require('../../../presenters/forecast_presenter.js')
 
-let userObject = new UserObject();
-let forecastPresenter = new ForecastPresenter();
+const userObject = new UserObject();
+const forecastPresenter = new ForecastPresenter();
 
 router.get('/', async function (request, response) {
   let apiKey = request.body.api_key
