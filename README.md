@@ -22,7 +22,9 @@
 
  SweaterWeatherExpress is an API application with endpoints to return local weather. Users can also add favorite locations, delete favorite locations, and return all their favorited locals' current forecast. 
  
- This application was created with an Node.js framework. 
+ Google CeoCoding and DarkSky API service is used to return forecast data. The data is reformatted within the application and displayed as JSON to the user. 
+ 
+ This application was created with an Node.js framework.
  
  ## Intial Setup 
  
