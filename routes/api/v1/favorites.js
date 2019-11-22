@@ -37,4 +37,17 @@ router.post('/', async function (request, response) {
   };
 })
 
+router.delete('/', async function (request, response) {
+  let apiKey = request.body.api_key
+  let user = await userObject.findUserByApiKey(apiKey)
+
+  if ( user !== 'undefined'){
+    let location = await request.body.location
+    userObject.deleteFavoriteLocation(user, location)
+    return response.status(204)
+  } else {
+    return response.status(401).send("Unauthorized");
+  };
+})
+
 module.exports = router;
