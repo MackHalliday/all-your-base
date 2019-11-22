@@ -13,10 +13,10 @@ const forecastPresenter = new ForecastPresenter();
 
 router.get('/', async function (request, response) {
 
-  let api_key = request.body.api_key
-  let valid_key = await userObject.validKey(api_key)
+  let apiKey = request.body.api_key
+  let validKey = await userObject.validKey(apiKey)
 
-  if (valid_key === true){
+  if (validKey === true){
     let location = await request.query.location
     let locationData = await forecastPresenter.locationAsync(location);
 
