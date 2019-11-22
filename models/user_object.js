@@ -10,11 +10,7 @@ class UserObject {
 
     let user = await database('users').where('api_key', api_key)
 
-    if (user.length === 0)
-      { return false
-    } else
-      { return true
-    };
+    return user.length !== 0
   }
   async favoriteLocations(userId){
     return await database('favorites').where('user_id', userId[0].id).select('location')
