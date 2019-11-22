@@ -29,6 +29,10 @@
  ## How to Run Tests
  
  ## How to Use
+
+ Recommend using [Postman](https://www.getpostman.com/) to hit endpoints. All endpoint begin with the root address and require a valid `api_key` in the body. 
+ 
+ There are three valid api_key seeded in the database: `123`, `456`, and `789`. 
  
  ### Endpoints
  
@@ -38,9 +42,15 @@ Application address
 ``` https://sweater-weather-express-js.herokuapp.com/```
 
 #### Forecast for City
-Returns current weather and forecast for location
+Returns current weather and forecast for specific city
 
 ``` GET /api/v1/forecast?location=denver,co```
+
+ ``` body:
+   {
+     "api_key": "YOUR_API_KEY"
+   }
+```
 
 ```location```: desired city location with state or country
 
@@ -58,11 +68,11 @@ Returns current weather and forecast for location
      "api_key": "YOUR_API_KEY"
    }
 ```
-[![Run in Postman](https://run.pstmn.io/button.svg)]()
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d05aaeb8653ee40e1f55)
 
 #### Listing Favorite Locations
 
-Lists all of user's favorited locations
+Returns the current weather for all of a user's favorited city
 
   ```GET /api/v1/favorites```
   
@@ -73,11 +83,11 @@ Lists all of user's favorited locations
    } 
    ```
  
-[![Run in Postman](https://run.pstmn.io/button.svg)]()
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b5e72a298193247627e1)
 
 #### Removing Favorite Locations
 
- Removes a user's favorite location
+ Removes a user's favorited city
   
   ```DELETE /api/v1/favorites```
   
@@ -87,8 +97,6 @@ Lists all of user's favorited locations
      "api_key": "YOUR_API_KEY"
      }
   ```
-  
-  [![Run in Postman](https://run.pstmn.io/button.svg)]()
   
  
  ## Schema Design 
