@@ -9,8 +9,7 @@ class DarkSkyService {
     let longitude = await coordinates.lng
 
     let response = await fetch(`${this.baseUrl}/${process.env.DARKSKY_API_KEY}/${latitude},${longitude}`)
-    let data = await response.json()
-    return data;
+    return response.json();
   }
 }
 

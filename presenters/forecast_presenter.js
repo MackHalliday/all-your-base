@@ -13,18 +13,21 @@ const darkSkyService = new DarkSkyService();
 class ForecastPresenter {
   constructor(){ }
 
+  async forecastData(location){
+    let coordinates = await geoCodingService.getCoordinatesAsync(location);
+    return darkSkyService.getForecast(coordinates);
+  }
+
   async favoriteLocationsAsync(favoriteLocations){
     let favoriteLocationsFormat = await Promise.all(favoriteLocations.map( async (location) => {
-      let coordinates = await geoCodingService.getCoordinatesAsync(location.location);
-      let forecast = await darkSkyService.getForecast(coordinates);
+      let forecast = await this.forecastData(location.location);
       return new ForecastCurrentlyObject(location.location, forecast);
     }));
     return favoriteLocationsFormat;
   }
 
   async locationAsync(location){
-    let coordinates = await geoCodingService.getCoordinatesAsync(location);
-    let forecast = await darkSkyService.getForecast(coordinates);
+    let forecast = await this.forecastData(location);
     return new ForecastObject(location, forecast);
   }
 }

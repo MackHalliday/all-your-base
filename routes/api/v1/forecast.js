@@ -13,13 +13,12 @@ const forecastPresenter = new ForecastPresenter();
 
 router.get('/', async function (request, response) {
 
-  let api_key = request.body.api_key
-  let valid_key = await userObject.validKey(api_key)
+  let apiKey = request.body.api_key
+  let user = await userObject.findUserByApiKey(apiKey)
 
-  if (valid_key === true){
+  if ( user !== 'undefined'){
     let location = await request.query.location
     let locationData = await forecastPresenter.locationAsync(location);
-
     return response.status(200).json(locationData);
   } else {
     return response.status(401).send("Unauthorized");
