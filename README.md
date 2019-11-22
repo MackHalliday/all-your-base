@@ -21,7 +21,9 @@
 
 * [GitHub Project Board](https://github.com/MackHalliday/sweater_weather_express/projects/2)
 
- SweaterWeatherExpress is an API application with endpoints to return local weather.
+ SweaterWeatherExpress is an API application with endpoints to return local weather. Users can also add favorite locations, delete favorite locations, and return all their favorited locals' current forecast. 
+ 
+ This application was created with an Express.js framework. 
  
  ## Intial Setup 
  
