@@ -13,16 +13,14 @@ const forecastPresenter = new ForecastPresenter();
 
 router.get('/', async function (request, response) {
   let apiKey = request.body.api_key
-  let validKey = await userObject.validKey(apiKey)
+  let user = await userObject.findUserByApiKey(apiKey)
 
-  if ( validKey === true ){
-    let userId = await userObject.findUserIdByApiKey(apiKey)
-    let favoriteLocations = await userObject.favoriteLocations(userId)
+  if ( user !== 'undefined'){
+    let favoriteLocations = await userObject.favoriteLocations(user)
     let favoriteLocationsData = await forecastPresenter.favoriteLocationsAsync(favoriteLocations);
-
     return response.status(200).json(favoriteLocationsData);
   } else {
-    return response.status(404).send("Unauthorized");
+    return response.status(401).send("Unauthorized");
   };
 })
 
@@ -35,7 +33,7 @@ router.post('/', async function (request, response) {
     userObject.addFavoriteLocation(user, location)
     return response.status(200).send({messsage: `${location} has been added to your favorites`})
   } else {
-    return response.status(404).send("Unauthorized");
+    return response.status(401).send("Unauthorized");
   };
 })
 
