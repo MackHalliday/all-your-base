@@ -29,14 +29,14 @@
  
  ## How to Use
  
- ## Endpoints
+ ### Endpoints
  
- ### Root 
+ #### Root 
 Application address
 
 ``` https://sweater-weather-express-js.herokuapp.com/```
 
-### Forecast for City
+#### Forecast for City
 Returns current weather and forecast for location
 
 ``` GET /api/v1/forecast?location=denver,co```
@@ -45,7 +45,7 @@ Returns current weather and forecast for location
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/853b5a98c9f7f92aeee4)
 
-### Favoriting Locations
+#### Favoriting Locations
 
   Adds a user's favorite city
 
@@ -59,7 +59,7 @@ Returns current weather and forecast for location
 ```
 [![Run in Postman](https://run.pstmn.io/button.svg)]()
 
-### Listing Favorite Locations
+#### Listing Favorite Locations
 
 Lists all of user's favorited locations
 
@@ -74,7 +74,7 @@ Lists all of user's favorited locations
  
 [![Run in Postman](https://run.pstmn.io/button.svg)]()
 
-### Removing Favorite Locations
+#### Removing Favorite Locations
 
  Removes a user's favorite location
   
