@@ -25,7 +25,7 @@ class ForecastPresenter {
   async locationAsync(location){
     let coordinates = await geoCodingService.getCoordinatesAsync(location);
     let forecast = await darkSkyService.getForecast(coordinates);
-    return await new ForecastObject(location, forecast);
+    return new ForecastObject(location, forecast);
   }
 }
 module.exports = ForecastPresenter
