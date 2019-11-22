@@ -95,6 +95,9 @@ Lists all of user's favorited locations
  ## Schema Design 
  
  ## Tech Stack List
+   *  Express.js 
+   *  Fetch 
+  
  
  ## Core Contributors
 
