@@ -8,6 +8,7 @@ class UserObject {
   async validKey(api_key){
     if (typeof api_key === 'undefined'){ return false }
     let user = await database('users').where('api_key', api_key)
+
     return user.length !== 0
   }
 
@@ -17,6 +18,10 @@ class UserObject {
 
   async findUserIdByApiKey(apiKey){
     return database('users').where('api_key', apiKey).select('id');
+  }
+
+  async addFavoriteLocation(userId){
+    return database('favorites').insert({location: location, user_id: userId[0].id})
   }
 }
 

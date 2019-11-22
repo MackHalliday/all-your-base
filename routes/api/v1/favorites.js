@@ -27,19 +27,17 @@ router.get('/', async function (request, response) {
 })
 
 router.post('/', async function (request, response) {
-
   let apiKey = request.body.api_key
   let validKey = await userObject.validKey(apiKey)
 
-  let location = await request.body.location
-  let userId = await userObject.findUserIdByApiKey(apiKey)
-
-  database('favorites').insert({location: location, user_id: userId[0].id})
-      .then( result => {
-          response.json({ success: true, message: 'ok' })
-       }).catch (error => {
-        return response.status(404).send("Unauthorized");
-       })
+  if ( validKey === true ){
+    let location = await request.body.location
+    let userId = await userObject.findUserIdByApiKey(apiKey)
+    userObject.addFavoriteLocation(userId)
+    return response.status(200).send({messsage: `${location} has been added to your favorites`})
+  } else {
+    return response.status(404).send("Unauthorized");
+  };
 })
 
 module.exports = router;
