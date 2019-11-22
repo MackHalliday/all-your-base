@@ -28,12 +28,11 @@ router.get('/', async function (request, response) {
 
 router.post('/', async function (request, response) {
   let apiKey = request.body.api_key
-  let validKey = await userObject.validKey(apiKey)
+  let user = await userObject.findUserByApiKey(apiKey)
 
-  if ( validKey === true ){
+  if ( user !== 'undefined'){
     let location = await request.body.location
-    let userId = await userObject.findUserIdByApiKey(apiKey)
-    userObject.addFavoriteLocation(userId)
+    userObject.addFavoriteLocation(user, location)
     return response.status(200).send({messsage: `${location} has been added to your favorites`})
   } else {
     return response.status(404).send("Unauthorized");
