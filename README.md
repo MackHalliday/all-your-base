@@ -1,7 +1,6 @@
 
 
 # Sweater Weather
-#### Created by: [Mack Halliday](https://github.com/MackHalliday)
 
 #### [Visit Production Application](https://sweater-weather-express-js.herokuapp.com/)
 
@@ -23,7 +22,7 @@
 
  SweaterWeatherExpress is an API application with endpoints to return local weather. Users can also add favorite locations, delete favorite locations, and return all their favorited locals' current forecast. 
  
- This application was created with an Express.js framework. 
+ This application was created with an Node.js framework. 
  
  ## Intial Setup 
  
@@ -93,11 +92,17 @@ Lists all of user's favorited locations
   
  
  ## Schema Design 
+ ![database_schema_image](https://user-images.githubusercontent.com/16658577/69433820-98502280-0cf9-11ea-8d6a-9305d65621d8.png)
  
  ## Tech Stack List
-   *  Express.js 
-   *  Fetch 
+   *  [Node.js](https://nodejs.org/en/) 
+   *  [Knex](http://knexjs.org/)
+   *  [PostgreSQL](https://www.postgresql.org/)
+   *  [Node-Fetch](https://www.npmjs.com/package/node-fetch)
+   
+  ## Core Contributors
   
- 
- ## Core Contributors
-
+  #### [Mack Halliday](https://github.com/MackHalliday)
+  ##### [View LinkedIn](https://www.linkedin.com/in/mackhalliday/)
+  
+  
