@@ -12,6 +12,7 @@ class UserObject {
 
     return user.length !== 0
   }
+  
   async favoriteLocations(userId){
     return await database('favorites').where('user_id', userId[0].id).select('location')
   }
